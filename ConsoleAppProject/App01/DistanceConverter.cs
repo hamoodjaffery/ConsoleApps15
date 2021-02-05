@@ -3,25 +3,51 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// 
     /// </summary>
-    /// <author>
-    /// Hamood Jaffery
-    /// </author>
-    
     public class DistanceConverter
     {
+        public const int FEET_IN_MILES = 5280;
+
         private double miles;
+
         private double feet;
 
-        /// <summary>
-        ///
-        /// </summary>       
-        public void Run()
+    /// <summary>
+    /// This method will Input the distance in miles
+    /// calculate the same distance in feet, and output the
+    /// distance in feet.
+    /// </summary>   
+        public void ConvertMilesToFeet()
         {
+            OutputHeading();
             InputMiles();
             CalculateFeet();
             OutputFeet();        
+        }
+
+        /// <summary>
+        /// This method will Input the distance in miles
+        /// calculate the same distance in feet, and output the
+        /// distance in feet.
+        /// </summary>   
+        public void ConvertFeetToMiles()
+        {
+            OutputHeading();
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();        
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n--------------------------------------");
+            Console.WriteLine(" Distance Converter Aap (Miles to Feet)");
+            Console.WriteLine("     by Hamood Jaffery                 ");
+            Console.WriteLine(" --------------------------------------\n");
         }
 
         /// <summary>
@@ -36,10 +62,11 @@ namespace ConsoleAppProject.App01
         }
         private void CalculateFeet()
         {
-        
+            feet = miles * 5280;
         }
         private void OutputFeet()
         {
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
         
         }       
     }
