@@ -27,16 +27,16 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// This method will Input the distance in miles
-        /// calculate the same distance in feet, and output the
-        /// distance in feet.
+        /// This method will Input the distance in feet
+        /// calculate the same distance in miles, and output the
+        /// distance in miles.
         /// </summary>   
         public void ConvertFeetToMiles()
         {
             OutputHeading();
-            InputMiles();
-            CalculateFeet();
-            OutputFeet();        
+            InputFeet();
+            CalculateMiles();
+            OutputMiles();        
         }
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace ConsoleAppProject.App01
         private void OutputHeading()
         {
             Console.WriteLine("\n--------------------------------------");
-            Console.WriteLine(" Distance Converter Aap (Miles to Feet)");
-            Console.WriteLine("     by Hamood Jaffery                 ");
+            Console.WriteLine("         Distance Converter Aap  ");
+            Console.WriteLine("            by Hamood Jaffery           ");
             Console.WriteLine(" --------------------------------------\n");
         }
 
@@ -68,6 +68,27 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine(miles + " miles is " + feet + " feet!");
         
-        }       
+        }
+
+        /// <summary>
+        ///Prompt the user to enter the distance in feet
+        ///Input the feet as a double number
+        /// </summary>
+        private void InputFeet()
+        {
+            Console.Write("Please enter the number of feet > ");
+            string value = Console.ReadLine();
+            feet = Convert.ToDouble(value);
+        }
+
+        private void CalculateMiles()
+        {
+            miles = feet / 5280;
+        }
+        private void OutputMiles()
+        {
+            Console.WriteLine(feet + " feets is " + miles + " miles!");
+
+        }
     }
 }
