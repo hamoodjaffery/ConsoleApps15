@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App02
     /// Please describe the main features of this App
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Hamood Jaffery
     /// </author>
     public class BMI
     {

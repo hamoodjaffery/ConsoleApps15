@@ -35,9 +35,7 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             ConsoleHelper.OutputHeading("Distance Converter App");
-
-            Console.WriteLine("Select the distance unit to convert from >");
-
+                        
             ConvertDistance();
         }
 
@@ -55,14 +53,45 @@ namespace ConsoleAppProject.App01
 
             int choice;
 
-            Console.WriteLine("Please select the from distance unit >");
+            Console.WriteLine("Select the distance unit to convert from >");
             choice = ConsoleHelper.SelectChoice(choices);
             fromUnit = ExecuteChoice(choice);
+            
+            if (choice == 1)
+            {
+                Console.WriteLine("You have selected Feet");
+            }
+
+            else if (choice == 2)
+            {
+                Console.WriteLine("You have selected Meters");
+            }
+
+            else if (choice == 3)
+            {
+                Console.WriteLine("You have selected Miles");
+            }
+            
 
 
-            Console.WriteLine("Please select the to distance unit >");
+            Console.WriteLine("Select the distance unit to convert to >");
             choice = ConsoleHelper.SelectChoice(choices);
             toUnit = ExecuteChoice(choice);
+
+            if (choice == 1)
+            {
+                Console.WriteLine("You have selected Feet");
+            }
+
+            else if (choice == 2)
+            {
+                Console.WriteLine("You have selected Meters");
+            }
+
+            else if (choice == 3)
+            {
+                Console.WriteLine("You have selected Miles");
+            }
 
             ConsoleHelper.OutputHeading($"Converting {fromUnit} to {toUnit}");
 
