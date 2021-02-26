@@ -2,7 +2,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
 Namespace ConsoleAap_Test
     <TestClass>
-    Public Class UnitTest1
+    Public Class TestDistanceConverter
         <TestMethod>
         Sub TestSub()
 
