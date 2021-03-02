@@ -15,6 +15,9 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
+        private static DistanceConverter converter = new DistanceConverter();
+
+        private static BMI_Calculator caclualtor = new BMI_Calculator();
         public static void Main(string[] args)
         {
                 
@@ -25,7 +28,7 @@ namespace ConsoleAppProject
             Console.Beep();
      
             DistanceConverter converter = new DistanceConverter();
-            BMI calculator = new BMI();
+            BMI_Calculator calculator = new BMI_Calculator();
 
             // Ask the user which app they want to use
 
@@ -43,7 +46,7 @@ namespace ConsoleAppProject
             }
             else
             {
-                calculator.Run();
+                calculator.OutputBmi();
             }
 
         }
