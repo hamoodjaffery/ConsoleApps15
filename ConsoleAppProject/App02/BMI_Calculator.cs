@@ -62,6 +62,9 @@ namespace ConsoleAppProject.App02
         //Property for user's BMI.
         public double User_BMI { get; set; }
 
+        /// <summary>
+        /// This method will display BMI Weight status and risk message.
+        /// </summary>
         public void OutputBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
@@ -74,6 +77,9 @@ namespace ConsoleAppProject.App02
             ExitDecision();
         }
 
+        /// <summary>
+        /// This method will handle exception, if in case the user entered a wrong choice
+        /// </summary>
         private void ExitDecision()
         {
             Console.WriteLine("Dou you want to do another calculation ?");
@@ -123,6 +129,9 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        /// <summary>
+        /// This method will display the BMI risk message.
+        /// </summary>
         public string DisplayRiskMessage()
         {
             StringBuilder message = new StringBuilder("\n\t");
@@ -146,6 +155,9 @@ namespace ConsoleAppProject.App02
             User_BMI = Kilograms / Math.Pow((Centimeters / 100), 2);
         }
 
+        /// <summary>
+        /// This method will display the BMI weight status
+        /// </summary>
         public string DisplayWeightStatus()
         {
             StringBuilder message = new StringBuilder("\n\t");
@@ -197,6 +209,9 @@ namespace ConsoleAppProject.App02
                 "in inches > ", 0, 50);
         }
 
+        /// <summary>
+        /// This method calcualtes measurement in the imperial unit
+        /// </summary>
         public void CalculateImperial()
         {
             double weightInPounds = (Stones * 14) + Pounds;

@@ -26,12 +26,19 @@ namespace ConsoleAppProject.App01
         public string FromUnit { get; set; }
         public string toUnit { get; set; }
 
+        /// <summary>
+        /// This method defines the variables for the distance converter
+        /// </summary>
         public DistanceConverter()
         {
             FromUnit = MILES;
             toUnit = FEET;
         }
 
+        /// <summary>
+        /// This is the main method that will be called as soon as
+        /// Distance converter runs
+        /// </summary>
         public void Run()
 
         {
@@ -103,7 +110,10 @@ namespace ConsoleAppProject.App01
             OutputDistance();
         }
 
-
+        /// <summary>
+        /// This method will display the choices of conversion for 
+        /// Distance converter app.
+        /// </summary>
         private static string ExecuteChoice(int choice)
         {
             if (choice == 1)
@@ -121,6 +131,10 @@ namespace ConsoleAppProject.App01
             return null;
         }
 
+        /// <summary>
+        /// This method performs all the required calculations
+        /// for conversion
+        /// </summary>
         private void CalculateDistance()
         {
             if (FromUnit == FEET && toUnit == MILES)
@@ -154,8 +168,9 @@ namespace ConsoleAppProject.App01
             }
         }
 
-        
-
+        /// <summary>
+        /// This method displays the final result after conversion
+        /// </summary> 
         private void OutputDistance()
         {
             Console.WriteLine($" {FromDistance} {FromUnit}" +
