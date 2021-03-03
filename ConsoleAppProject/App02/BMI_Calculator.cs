@@ -48,13 +48,14 @@ namespace ConsoleAppProject.App02
         public const int INCHES_IN_FEET = 12;
 
         // Weight and Height Units    
-        private double Kilograms { get; set; }
-        private double Meters;
-        public int Stones { get; set; }
+        public double Kilograms { get; set; }
+        private double meters;
+
         public int Pounds { get; set; }
+        public int Stones { get; set; }
         public int Feet { get; set; }
         public int Inches { get; set; }
-        public double Centimeters { get; set; }
+        public  double Centimeters { get; set; }
         public string METRIC { get; private set; }
         public string IMPERIAL { get; private set; }
 
@@ -102,7 +103,7 @@ namespace ConsoleAppProject.App02
         /// Prompts the user to select which unit type they would like to use.
         /// (1. Imperial; 2. Metric)
         /// </summary>
-        private void SelectUnits()
+        public void SelectUnits()
         {
             Console.WriteLine("\t Choose the measuring unit to use >");
 
@@ -152,7 +153,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void CalculateMetric()
         {
-            User_BMI = Kilograms / Math.Pow((Centimeters / 100), 2);
+            BmiIndex = Kilograms / Math.Pow((Centimeters / 100), 2);
         }
 
         /// <summary>
@@ -161,33 +162,33 @@ namespace ConsoleAppProject.App02
         public string DisplayWeightStatus()
         {
             StringBuilder message = new StringBuilder("\n\t");
-            if (User_BMI < Underweight)
+            if (BmiIndex < Underweight)
             {
                 category = WeightCategories.Underweight;
 
             }
-            else if ((User_BMI > Underweight) && (User_BMI <= Normal))
+            else if ((BmiIndex > Underweight) && (User_BMI <= Normal))
             {
                 category = WeightCategories.Normal;
             }
-            else if ((User_BMI > Normal) && (User_BMI <= Overweight))
+            else if ((BmiIndex > Normal) && (User_BMI <= Overweight))
             {
                 category = WeightCategories.Overweight;
             }
-            else if ((User_BMI > Overweight) && (User_BMI <= OBESE_CLASS1))
+            else if ((BmiIndex > Overweight) && (User_BMI <= OBESE_CLASS1))
             {
                 category = WeightCategories.ObeseI;
             }
-            else if ((User_BMI > OBESE_CLASS1) && (User_BMI <= OBESE_CLASS2))
+            else if ((BmiIndex > OBESE_CLASS1) && (User_BMI <= OBESE_CLASS2))
             {
                 category = WeightCategories.ObeseII;
             }
-            else if ((User_BMI > OBESE_CLASS2) && (User_BMI <= OBESE_CLASS3))
+            else if ((BmiIndex > OBESE_CLASS2) && (User_BMI <= OBESE_CLASS3))
             {
                 category = WeightCategories.ObeseIII;
             }
 
-            message.Append($"Your BMI is {User_BMI:0.0}. " +
+            message.Append($"Your BMI is {BmiIndex:0.0}. " +
                $"You are {category}. ");
             return message.ToString();
         }       
@@ -216,7 +217,7 @@ namespace ConsoleAppProject.App02
         {
             double weightInPounds = (Stones * 14) + Pounds;
             double heightInInches = (Feet * 12) + Inches;
-            User_BMI = ((weightInPounds / heightInInches) / heightInInches) * 703;
+            BmiIndex = ((weightInPounds / heightInInches) / heightInInches) * 703;
         }
 
         /// <summary>
