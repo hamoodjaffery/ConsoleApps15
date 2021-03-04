@@ -19,10 +19,8 @@
 
     <p>
         <label>From Unit: </label>
-        <select asp-for="@Model.FromUnit">
-            <option>@DistanceConverter.MILES</option>
-            <option>@DistanceConverter.METERS</option>
-            <option>@DistanceConverter.FEET</option>
+        <select asp-for="FromUnit" required
+                asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
         </select>
     </p>
     <p>
@@ -40,23 +38,22 @@
 
     <h2>Convert to:</h2>
     <p>
-        <label>From Unit: </label>
-        <select asp-for="@Model.toUnit">
-            <option>@DistanceConverter.MILES</option>
-            <option>@DistanceConverter.METERS</option>
-            <option>@DistanceConverter.FEET</option>
-        </select>
+        <label>To Unit: </label>
+        <select asp-for="ToUnit" required
+                asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
+
+        </select>          
     </p>
     <p>
-        @if (Model.toDistance == 0)
+        @if (Model.ToDistance == 0)
         {
-            <input type="text" asp-for="@Model.toDistance" value=""
+            <input type="text" asp-for="@Model.ToDistance" value=""
                    placeholder="To Distance" readonly />
         }
         else
         {
-            <input type="text" asp-for="@Model.toDistance"
-                   value="@Model.toDistance.ToString("0.00")"
+            <input type="text" asp-for="@Model.ToDistance"
+                   value="@Model.ToDistance.ToString("0.00")"
                    placeholder="To Distance" readonly />
         }
     </p>
