@@ -1,5 +1,6 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -18,6 +19,8 @@ namespace ConsoleAppProject
         private static DistanceConverter converter = new DistanceConverter();
 
         private static BMI_Calculator caclualtor = new BMI_Calculator();
+
+        private static StudentGrades grades = new StudentGrades();
         public static void Main(string[] args)
         {
                 
@@ -29,25 +32,36 @@ namespace ConsoleAppProject
      
             DistanceConverter converter = new DistanceConverter();
             BMI_Calculator calculator = new BMI_Calculator();
+            StudentGrades grades = new StudentGrades();
 
             // Ask the user which app they want to use
 
             string[] choices = new string[]
             {
                 "App01 Distance Converter",
-                "App02 BMI Calculator"
+                "App02 BMI Calculator",
+                "App03 Student Grades"
             };
 
             int choiceNo = ConsoleHelper.SelectChoice(choices);
 
-            if(choiceNo == 1)
+            if (choiceNo == 1)
             {
-                converter.Run();    
+
+                converter.Run();
             }
-            else
+
+            else if (choiceNo == 2)
             {
                 calculator.OutputBmi();
             }
+
+            else if (choiceNo == 3)
+            {
+                grades.UserSelect();
+            }
+
+            else Console.WriteLine("Invalid choice");
 
         }
     }
