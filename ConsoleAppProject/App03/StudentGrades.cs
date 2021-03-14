@@ -57,9 +57,11 @@ namespace ConsoleAppProject.App03
             bool carryOn = true;
             do
             {
-                Console.WriteLine("Welcome to Student Grades");
-                Console.WriteLine("by Hamood Jaffery");
-                Console.WriteLine("Please select from the following >");
+                Console.WriteLine();
+                Console.WriteLine($"\tWelcome to Student Grades");
+                Console.WriteLine($"\tby Hamood Jaffery");
+                Console.WriteLine();
+                Console.WriteLine($"\tPlease select from the following >");
                 string choice = DisplayChoices();
 
                 ExecuteChoices(choice);
@@ -75,11 +77,11 @@ namespace ConsoleAppProject.App03
         public string DisplayChoices()
         {
             Console.WriteLine();
-            Console.WriteLine("1, Input Marks");
-            Console.WriteLine("2. Output Marks");
-            Console.WriteLine("3. Output Stats");
-            Console.WriteLine("4. Output Grade Profile");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine($"\t1. Input Marks");
+            Console.WriteLine($"\t2. Output Marks");
+            Console.WriteLine($"\t3. Output Stats");
+            Console.WriteLine($"\t4. Output Grade Profile");
+            Console.WriteLine($"\t5. Quit");
             Console.WriteLine();
 
             Console.WriteLine();
@@ -103,10 +105,12 @@ namespace ConsoleAppProject.App03
             }
             else if (choice.Equals("3"))
             {
+                CalculateStats();
                 OutputStats();
             }
             else if (choice.Equals("4"))
             {
+                CalculateGradeProfile();
                 OutputGradeProfile();
             }
             else if (choice.Equals("5"))
@@ -115,9 +119,12 @@ namespace ConsoleAppProject.App03
             }
 
             else
+            {
                 Console.WriteLine();
-            Console.WriteLine("Invalid choice, please select again");
-            Console.WriteLine();
+                Console.WriteLine($"\tInvalid choice, please select again");
+                Console.WriteLine();
+            }
+            
         }
 
         /// <summary>
@@ -137,11 +144,11 @@ namespace ConsoleAppProject.App03
             int mark;
             int index = 0;
 
-            ConsoleHelper.OutputTitle(" Input Student Marks >");
+            ConsoleHelper.OutputTitle($"\tInput Student Marks >");
 
             foreach (string student in Students)
             {
-                mark = (int)ConsoleHelper.InputNumber("Please enter a mark for" + (student) + ">", 0, HighestMark);
+                mark = (int)ConsoleHelper.InputNumber($"\tPlease enter a mark for" +  (student) + ">", 0, HighestMark);
                 Marks[index] = mark;
                 index++;
             }
@@ -160,7 +167,9 @@ namespace ConsoleAppProject.App03
             ConsoleHelper.OutputTitle(" Listing of Student Marks >");
             for (int index = 0; index < NoStudents; index++)
             {
-                Console.WriteLine($" {Students[index]} {Marks[index]}");
+                int mark = Marks[index];
+                Grades grade = ConvertToGrade(mark);
+                Console.WriteLine($" {Students[index]} {mark} {grade}");
 
             }
         }
@@ -205,6 +214,7 @@ namespace ConsoleAppProject.App03
             double total = 0;
             foreach (int mark in Marks)
             {
+                total = total + mark;
                 if (mark > Maximum) Maximum = mark;
                 if (mark < Minimum) Minimum = mark;
             }
@@ -216,7 +226,9 @@ namespace ConsoleAppProject.App03
         /// </summary>
         private void OutputStats()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"\tMean = {Mean}");
+            Console.WriteLine($"\tMin = {Minimum}");
+            Console.WriteLine($"\tMax = {Maximum}");
         }
 
         /// <summary>
@@ -253,8 +265,8 @@ namespace ConsoleAppProject.App03
             {
                 int percentage = count * 100 / Marks.Length;
 
-                Console.WriteLine($"\tGrade {grade} \t[percentage]$" +
-                    $"\t(Count {count}");
+                Console.WriteLine($"\tGrade {grade} \t{percentage}%" +
+                    $"\t(Count {count})");
                 grade++;
             }
 

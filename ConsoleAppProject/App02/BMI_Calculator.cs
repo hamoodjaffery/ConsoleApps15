@@ -83,12 +83,12 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void ExitDecision()
         {
-            Console.WriteLine("Dou you want to do another calculation ?");
+            Console.WriteLine($"\tDou you want to do another calculation ?");
             
             string[] choices = new string[]
             {
                "Yes",
-                "No"
+               "No"
             };
 
             int choiceNo = ConsoleHelper.SelectChoice(choices);
@@ -105,7 +105,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void SelectUnits()
         {
-            Console.WriteLine("\t Choose the measuring unit to use >");
+            Console.WriteLine("Choose the measuring unit to use >");
 
 
             string[] choices = { EnumHelper<UnitSystems>.GetName(UnitSystems.Imperial),
@@ -199,15 +199,15 @@ namespace ConsoleAppProject.App02
        /// </summary>
         public void GetImperialInput()
         {
-            Stones = (int)ConsoleHelper.InputNumber("\n\t Please enter your weight " +
-                "in stones > ", 0, 30); ;
-            Pounds = (int)ConsoleHelper.InputNumber("\n\tPlease enter your weight" +
-                "in pounds > ", 0, 300);
+            Stones = (int)ConsoleHelper.InputNumber($"\tPlease enter your weight" +
+                " in stones > ", 0, 30); ;
+            Pounds = (int)ConsoleHelper.InputNumber($"\tPlease enter your weight" +
+                " in pounds > ", 0, 13);
 
-            Feet = (int)ConsoleHelper.InputNumber("\n\tPlease enter your height" +
-                "in feet > ", 0, 10);
-            Inches = (int)ConsoleHelper.InputNumber("\n\tPlease enter your height" +
-                "in inches > ", 0, 50);
+            Feet = (int)ConsoleHelper.InputNumber($"\tPlease enter your height" +
+                " in feet > ", 0, 10);
+            Inches = (int)ConsoleHelper.InputNumber($"\tPlease enter your height" +
+                " in inches > ", 0, 11);
         }
 
         /// <summary>
