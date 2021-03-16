@@ -33,6 +33,8 @@ namespace ConsoleAppProject.App03
 
         public int Maximum { get; set; }
 
+
+
         /// <summary>
         /// Constructor to store student names
         /// </summary>
