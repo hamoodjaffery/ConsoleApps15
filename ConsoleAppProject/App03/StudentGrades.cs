@@ -53,7 +53,9 @@ namespace ConsoleAppProject.App03
         }
 
         //Methods
-
+        /// <summary>
+        /// Dsiplay the user 
+        /// </summary>
         public void UserSelect()
         {
             bool carryOn = true;

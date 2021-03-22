@@ -209,17 +209,23 @@ namespace AppTest
         {
             //Arrange
 
+            int[] TestMarks = new int[]
+            {
+                   10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+            };
+
             converter.Marks = TestMarks;
 
             //Act
             converter.CalculateGradeProfile();
 
             bool expectedProfile;
-            expectedProfile = ((converter.GradeProfile[0] == 3) &&
-                               (converter.GradeProfile[1] == 1) &&
+            expectedProfile = ((converter.GradeProfile[0] == 0) &&
+                               (converter.GradeProfile[1] == 3) &&
                                (converter.GradeProfile[2] == 1) &&
                                (converter.GradeProfile[3] == 1) &&
-                               (converter.GradeProfile[4] == 4));
+                               (converter.GradeProfile[4] == 1) &&
+                               (converter.GradeProfile[5] == 4));
 
             //Assert
             Assert.IsTrue(expectedProfile);
