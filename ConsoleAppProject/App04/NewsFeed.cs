@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConsoleAppProject.App04;
+using ConsoleAppProject.Helpers;
 
 
-namespace ConsoleAppProject.App04
+namespace WebApps.Models
 {
     ///<summary>
     /// The NewsFeed class stores news posts for the news feed in a social network 
@@ -20,6 +22,7 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
+        public const string AUTHOR = "Hamood";
         private readonly List<Post> posts;
 
         ///<summary>
@@ -28,6 +31,11 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+            MessagePost post = new MessagePost(AUTHOR, "I love Visual Studio 2019");
+            AddMessagePost(post);
+
+            PhotoPost photoPost = new PhotoPost(AUTHOR, "Photos1.jpg", "Visual Studio 2019");
+            AddPhotoPost(photoPost);
            
         }
 
@@ -52,6 +60,40 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        ///
+        ///
+        ///
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
+
+                posts.Remove(post);
+                post.Display();
+
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach(Post post in posts)
+            {
+                if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)
@@ -61,7 +103,7 @@ namespace ConsoleAppProject.App04
             // display all text posts
             foreach (Post post in posts)
             {
-                post.Display();
+                ///post.Display();
                 Console.WriteLine();
             }
             

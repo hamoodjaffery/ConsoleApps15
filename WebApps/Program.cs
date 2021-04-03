@@ -26,7 +26,7 @@ namespace WebApps
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    context.Database.EnsureCreated();
+                    //context.Database.EnsureCreated();
                 }
                 catch (Exception ex)
                 {

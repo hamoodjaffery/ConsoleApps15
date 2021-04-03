@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace WebApps.Models
 {
@@ -17,11 +17,10 @@ namespace WebApps.Models
     {
 
         // the name of the image file
-        [StringLength(128)]
         public String Filename { get; set; }
 
         // a one line image caption
-        [StringLength(60)]
         public String Caption { get; set; } 
+
     }
 }

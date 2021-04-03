@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApps.Models
 {
-    [Serializable]
     public class Post
     {
         //Primary Key
@@ -14,20 +13,13 @@ namespace WebApps.Models
         [StringLength(20), Required]
         public String Username { get; set; }
 
-        public DateTime Timestamp { get; }
+        [DataType(DataType.DateTime)]
+        public DateTime Timestamp { get; set; }
 
-        private int likes;
+        public int Unlikes { get; set; }
+        public int likes { get; set; }
 
         
-        /// <summary>
-        /// 
-        /// </summary>
-        public Post()
-        {
-            Timestamp = DateTime.Now;
-            likes = 0;
-        }
-
         /// <summary>
         /// Record one more 'Like' indication from a user.
         /// </summary>
@@ -41,10 +33,7 @@ namespace WebApps.Models
         ///</summary>
         public void Unlike()
         {
-            if (likes > 0)
-            {
-                likes--;
-            }
+             Unlikes--;
         }
 
         ///<summary>
