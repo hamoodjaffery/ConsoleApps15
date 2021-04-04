@@ -1,17 +1,31 @@
 ﻿@model IEnumerable<WebApps.Models.PhotoPost>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Photos";
 }
 
-<h1>Index</h1>
+<header class="jumbotron">
+    <h1>PostBook Photos</h1>
+</header>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-action="Create">Add Photo</a>
+
+    <a class="btn btn-info"
+       asp-action="Index"
+       asp-controller="MessagePosts">
+        View Messages
+    </a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Filename)
             </th>
@@ -19,13 +33,13 @@
                 @Html.DisplayNameFor(model => model.Caption)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Username)
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Unlikes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.likes)
             </th>
             <th></th>
         </tr>
@@ -33,25 +47,31 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostId)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Filename)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Caption)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Caption)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Unlikes)
+                @Html.DisplayFor(modelItem => item.Timestamp)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.likes)
+                @Html.DisplayFor(modelItem => item.Likes)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                <a asp-action="Edit" class="btn btn-success"
+                   asp-route-id="@item.PostId">Edit</a>
+                <a asp-action="Details" class="btn btn-info"
+                   asp-route-id="@item.PostId">Details</a>
+                <a asp-action="Delete" class="btn btn-danger"
+                   asp-route-id="@item.PostId">Delete</a>
             </td>
         </tr>
 }

@@ -17,7 +17,7 @@ namespace WebApps.Models
         public DateTime Timestamp { get; set; }
 
         public int Unlikes { get; set; }
-        public int likes { get; set; }
+        public int Likes { get; set; }
 
         
         /// <summary>
@@ -25,7 +25,7 @@ namespace WebApps.Models
         /// </summary>
         public void Like()
         {
-            likes++;
+            Likes++;
         }
 
         ///<summary>
@@ -33,7 +33,10 @@ namespace WebApps.Models
         ///</summary>
         public void Unlike()
         {
-             Unlikes--;
+            if (Likes > 0)
+            {
+                Likes--;
+            }
         }
 
         ///<summary>
@@ -47,10 +50,10 @@ namespace WebApps.Models
         /// <returns>
         /// A relative time string for the given time
         /// </returns>      
-        private String FormatElapsedTime(DateTime time)
+        public String FormatElapsedTime()
         {
             DateTime current = DateTime.Now;
-            TimeSpan timePast = current - time;
+            TimeSpan timePast = current - Timestamp;
 
             long seconds = (long)timePast.TotalSeconds;
             long minutes = seconds / 60;

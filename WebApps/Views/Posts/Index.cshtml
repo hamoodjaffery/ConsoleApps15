@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Unlikes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.likes)
+                @Html.DisplayNameFor(model => model.Likes)
             </th>
             <th></th>
         </tr>
@@ -28,13 +28,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.PostId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @item.Timestamp)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Unlikes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.likes)
+                @Html.DisplayFor(modelItem => item.Likes)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |

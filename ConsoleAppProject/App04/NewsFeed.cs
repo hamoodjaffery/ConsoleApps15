@@ -60,9 +60,9 @@ namespace WebApps.Models
             posts.Add(photo);
         }
 
-        ///
-        ///
-        ///
+        /// <summary>
+        /// 
+        /// </summary>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -81,6 +81,9 @@ namespace WebApps.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Post FindPost(int id)
         {
             foreach(Post post in posts)

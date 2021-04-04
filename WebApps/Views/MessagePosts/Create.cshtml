@@ -1,4 +1,4 @@
-﻿@model WebApps.Models.PhotoPost
+﻿@model WebApps.Models.MessagePost
 
 @{
     ViewData["Title"] = "Create";
@@ -6,26 +6,26 @@
 
 <h1>Create</h1>
 
-<h4>PhotoPost</h4>
+<h4>MessagePost</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Filename" class="control-label"></label>
-                <input asp-for="Filename" class="form-control" />
-                <span asp-validation-for="Filename" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Caption" class="control-label"></label>
-                <input asp-for="Caption" class="form-control" />
-                <span asp-validation-for="Caption" class="text-danger"></span>
+                <label asp-for="Message" class="control-label"></label>
+                <textarea asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timestamp" class="control-label"></label>
+                <input asp-for="Timestamp" class="form-control" />
+                <span asp-validation-for="Timestamp" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Unlikes" class="control-label"></label>

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using ConsoleAppProject.App04;
 
 
 namespace WebApps.Models
