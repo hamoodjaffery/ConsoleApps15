@@ -5,7 +5,7 @@
 **Student ID**: | 21910912 |
 **Course:** | Computing BSc (Hons) Cyber Security |
 **Module**: | CO453 - Application Programming   |
-**Started**: | February 2021 |    
+**Started**: | September 2021 |    
 
 1. App01: Distance Converter
 2. App02: BMI Calculator
