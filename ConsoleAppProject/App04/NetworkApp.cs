@@ -1,13 +1,13 @@
-﻿using ConsoleAppProject.App04;
+﻿
 using ConsoleAppProject.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebApps.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConsoleAppProject.App04
-{  
-   public class NetworkApp
+{
+    public class NetworkApp
     {
         private NewsFeed news = new NewsFeed();
         private string filename;
@@ -90,7 +90,7 @@ namespace ConsoleAppProject.App04
             ConsoleHelper.OutputTitle($" Removing a Post");
 
             int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ",
-                                                    1, Post.GetNumberofPosts());
+              1, Post.GetNumberofPosts());
             news.RemovePost(id);
         }
 

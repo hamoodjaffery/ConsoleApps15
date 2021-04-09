@@ -4,7 +4,6 @@ using ConsoleAppProject.App03;
 using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
-using WebApps.Models;
 
 namespace ConsoleAppProject
 {
@@ -25,6 +24,7 @@ namespace ConsoleAppProject
         private static StudentGrades grades = new StudentGrades();
 
         private static NetworkApp app04 = new NetworkApp();
+
         public static void Main(string[] args)
         {
                 

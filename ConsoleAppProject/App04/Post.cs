@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ConsoleAppProject.App04;
+using ConsoleAppProject.Helpers;
 
 
-namespace WebApps.Models
+
+namespace ConsoleAppProject.App04
 {
     [Serializable]
     public class Post
@@ -30,6 +31,14 @@ namespace WebApps.Models
             likes = 0;
         }
 
+        /// <summary>
+		/// 
+		/// </summary>
+		/// <param name="post"></param>
+        public void Add(Post post)
+        {
+
+        }
         /// <summary>
         /// Record one more 'Like' indication from a user.
         /// </summary>
@@ -76,6 +85,11 @@ namespace WebApps.Models
             {
                 return seconds + " seconds ago";
             }
-        }       
+        }
+
+        internal static double GetNumberofPosts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

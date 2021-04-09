@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
+using System.ComponentModel.DataAnnotations;
 
-
-namespace WebApps.Models
+namespace ConsoleAppProject.App04
 {
     ///<summary>
     /// The NewsFeed class stores news posts for the news feed in a social network 
@@ -47,7 +46,7 @@ namespace WebApps.Models
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            posts.Add(message);
+            ///posts.Add(message);
         }
 
         ///<summary>
@@ -76,7 +75,7 @@ namespace WebApps.Models
                 Console.WriteLine($" \nThe following Post {id} has been removed!\n");
 
                 posts.Remove(post);
-                post.Display();
+                Console.WriteLine(post.ToString());
 
             }
         }
@@ -103,11 +102,11 @@ namespace WebApps.Models
         ///</summary>
         public void Display()
         {
-            // display all text posts
+            //display all text posts
             foreach (Post post in posts)
             {
-                ///post.Display();
-                Console.WriteLine();
+                Console.WriteLine(post.ToString());
+
             }
             
         }
